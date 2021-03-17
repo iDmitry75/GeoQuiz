@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Геовикторина</string>
-    <string name="question_text">Стамбул самый большой город Турции</string>
     <string name="true_button">Да</string>
     <string name="false_button">Нет</string>
     <string name="correct_toast">Правильно!</string>
     <string name="incorrect_toast">Неправильно!</string>
     <string name="action_settings">Настройки</string>
+    <string name="next_button">След.</string>
+    <string name="question_oceans">Тихий океан больше Атлантического океана</string>
+    <string name="question_mideast">Суэцкий канал соединяет Красное море и Индийский океан</string>
+    <string name="question_africa">Исток Нила находится в Египте</string>
+    <string name="question_americas">Амазонка самая длинная река в обеих Америках</string>
+    <string name="question_asia">Озеро Байкал самое старое и глубокое пресноводное озеро в мире</string>
 </resources>
