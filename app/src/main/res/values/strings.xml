@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Геовикторина</string>
+    <string name="question_text">Стамбул самый большой город Турции</string>
+    <string name="true_button">Да</string>
+    <string name="false_button">Нет</string>
+    <string name="correct_toast">Правильно!</string>
+    <string name="incorrect_toast">Неправильно!</string>
+    <string name="action_settings">Настройки</string>
+</resources>
