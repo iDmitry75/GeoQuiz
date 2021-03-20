@@ -1,8 +1,10 @@
 package com.adsoft.geoquiz;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTrueAnswersTextView;
     private static final String TAG = "MainActivity";
     private static final String KEY_INDEX = "index";
+    private static final int REQUEST_CODE_CHEAT = 0;
 
     private Question[] mQuestionBank = new Question[] {
             new Question(R.string.question_oceans, true),
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private int mCurrentIndex = 0;
+    private boolean mIsCheater;
 
     private  void updateQuestion(){
         int question = mQuestionBank[mCurrentIndex].getTextResId();
@@ -71,12 +75,17 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswer(boolean userPressedTrue){
         int messageResId;
 
-        mQuestionBank[mCurrentIndex].setAnswer(userPressedTrue);
+        boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueAnswered();
 
-        if (mQuestionBank[mCurrentIndex].isTrueAnswered()){
-            messageResId = R.string.correct_toast;
+        mQuestionBank[mCurrentIndex].setAnswer(userPressedTrue);
+        if (mIsCheater) {
+            messageResId = R.string.judgment_toast;
         } else {
-            messageResId = R.string.incorrect_toast;
+            if (answerIsTrue) {
+                messageResId = R.string.correct_toast;
+            } else {
+                messageResId = R.string.incorrect_toast;
+            }
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
     }
@@ -131,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
                 Intent i = CheatActivity.newIntent(MainActivity.this, answerIsTrue);
-                startActivity(i);
+                startActivityForResult(i, REQUEST_CODE_CHEAT);
             }
         });
 
@@ -171,5 +180,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy() called");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == REQUEST_CODE_CHEAT){
+            if (data == null){
+                return;
+            }
+            mIsCheater = CheatActivity.wasAnswerShown(data);
+        }
     }
 }
