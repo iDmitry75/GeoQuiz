@@ -11,4 +11,5 @@
     <string name="question_africa">Исток Нила находится в Египте</string>
     <string name="question_americas">Амазонка самая длинная река в обеих Америках</string>
     <string name="question_asia">Озеро Байкал самое старое и глубокое пресноводное озеро в мире</string>
+    <string name="true_answers">Правильных ответов: %1$d из %2$d.</string>
 </resources>
