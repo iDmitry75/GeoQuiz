@@ -40,14 +40,24 @@
             android:text="@string/false_button" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/cheat_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/cheat_button">
 
         <ImageButton
             android:id="@+id/prev_button"
@@ -56,6 +66,7 @@
             android:src="@drawable/arrow_left"
             tools:layout_editor_absoluteX="165dp"
             tools:layout_editor_absoluteY="533dp" />
+
         <ImageButton
             android:id="@+id/next_button"
             android:layout_width="wrap_content"

@@ -42,6 +42,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -56,6 +57,7 @@
             android:src="@drawable/arrow_left"
             tools:layout_editor_absoluteX="165dp"
             tools:layout_editor_absoluteY="533dp" />
+
         <ImageButton
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
@@ -65,5 +67,27 @@
             tools:layout_editor_absoluteY="533dp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/trueanswers_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Правильных ответов: 1 из 10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/cheat_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
